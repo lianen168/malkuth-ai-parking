@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d0d0f; /* Basalt Black */
+            --bg-color: #0d0d0f;
             --text-primary: #EAEAEA;
             --text-secondary: #888888;
-            --accent-gold: #D4AF37; /* Royal Gold */
+            --accent-gold: #D4AF37;
             --accent-silver: #A9A9A9;
             --gold-glow: rgba(212, 175, 55, 0.3);
             --card-bg: rgba(25, 25, 28, 0.7);
@@ -40,7 +40,7 @@
         header {
             width: 100%;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -48,20 +48,14 @@
         }
         .main-title {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(4rem, 12vw, 9rem); 
+            font-size: clamp(3rem, 8vw, 6rem); 
             font-weight: 500; 
             letter-spacing: 0.1em; 
-            line-height: 1;
+            line-height: 1.1;
             color: var(--accent-gold);
             text-transform: uppercase;
             animation: solidify 4s ease-out forwards;
-            --stroke-width: 1px;
-            --stroke-color: var(--gold-glow);
-            text-shadow: 
-                var(--stroke-width) 0 0 var(--stroke-color),
-                calc(var(--stroke-width) * -1) 0 0 var(--stroke-color),
-                0 var(--stroke-width) 0 var(--stroke-color),
-                0 calc(var(--stroke-width) * -1) 0 var(--stroke-color);
+            text-shadow: 1px 0 0 var(--gold-glow), -1px 0 0 var(--gold-glow), 0 1px 0 var(--gold-glow), 0 -1px 0 var(--gold-glow);
         }
         @keyframes solidify {
             0% { color: transparent; text-shadow: 0 0 10px var(--gold-glow); }
@@ -78,65 +72,320 @@
         }
         @keyframes fadeIn { to { opacity: 1; } }
         .tagline {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             max-width: 700px;
-            margin: 2rem auto 0;
+            margin: 1.5rem auto 0;
             color: var(--text-secondary);
             font-style: italic;
             animation: fadeIn 3s 2.5s ease-out forwards;
             opacity: 0;
+            line-height: 1.6;
         }
-        .content-section { background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 100px 40px; width: 100%; }
-        .section-title { font-size: 2rem; font-weight: 500; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 4rem; text-transform: uppercase; }
-        .synthesis-text { max-width: 800px; margin: 0 auto 4rem auto; text-align: center; font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); }
-        .analogy-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; text-align: left; }
-        .analogy-table th, .analogy-table td { padding: 20px; border: 1px solid var(--border-color); }
-        .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: 1.2rem; text-align: center; }
-        .analogy-table td { color: var(--text-secondary); }
-        .analogy-table strong { color: var(--text-primary); font-weight: 500; }
-        .tree-section { padding: 100px 20px; width: 100%; position: relative; display: flex; justify-content: center; align-items: center; min-height: 80vh; overflow: hidden; }
-        .tree-container { position: relative; width: 90vw; height: 600px; max-width: 400px; margin: 0 auto; }
-        .sefirah { position: absolute; width: 60px; height: 60px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: var(--accent-silver); background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); }
-        /* --- HIGHLIGHT MALKUTH --- */
-        .sefirah.malkuth { border-color: var(--accent-gold); box-shadow: 0 0 20px var(--gold-glow); color: var(--accent-gold); animation: pulse-malkuth 3s infinite; }
-        @keyframes pulse-malkuth { 0%, 100% { box-shadow: 0 0 20px var(--gold-glow); } 50% { box-shadow: 0 0 35px var(--gold-glow); } }
-        .keter { top: 0; left: 50%; transform: translateX(-50%); }
-        .chokhmah { top: 15%; left: 15%; }
-        .binah { top: 15%; right: 15%; }
-        .chesed { top: 35%; left: 5%; }
-        .gevurah { top: 35%; right: 5%; }
-        .tiferet { top: 45%; left: 50%; transform: translateX(-50%); }
-        .netzach { top: 60%; left: 15%; }
-        .hod { top: 60%; right: 15%; }
-        .yesod { top: 75%; left: 50%; transform: translateX(-50%); }
-        .malkuth { top: 90%; left: 50%; transform: translateX(-50%); }
-        .spark { position: absolute; width: 3px; height: 3px; background: var(--accent-gold); border-radius: 50%; opacity: 0; box-shadow: 0 0 5px var(--accent-gold); }
-        @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
-        .domains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
-        .domain-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s ease; }
-        .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 15px var(--gold-glow); }
-        .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1rem; }
-        .domain-card p { color: var(--text-secondary); font-size: 0.9rem; }
-        .sales-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 40px; width: 100%; max-width: 600px; margin: 0 auto; backdrop-filter: blur(10px); box-shadow: 0 0 30px rgba(0,0,0,0.2); }
-        .domain-name { font-family: 'Oswald', monospace; font-size: 1.8rem; font-weight: 500; margin-bottom: 20px; color: var(--text-primary); text-transform: uppercase; }
-        .price { font-size: 3rem; font-weight: 300; color: var(--accent-gold); margin: 10px 0; }
-        .installments { color: var(--text-secondary); margin-bottom: 30px; font-style: italic; font-size: 1.1rem; }
-        .buy-button { display: inline-block; background: var(--accent-gold); color: #000; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500; padding: 18px 35px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 30px; }
-        .buy-button:hover { background: #eac14c; transform: translateY(-3px); box-shadow: 0 12px 30px var(--gold-glow); }
-        footer { padding: 60px 40px; font-size: 0.95rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
-        .contact-button { background: transparent; color: var(--accent-gold); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: 1rem; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
-        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-gold); }
-        #email-copy-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; }
-        @media (max-width: 992px) { .analogy-table, .domains-grid { grid-template-columns: 1fr; } }
+        .content-section { 
+            background: var(--bg-color); 
+            border-top: 1px solid var(--border-color); 
+            padding: 80px 40px; 
+            width: 100%; 
+        }
+        .section-title { 
+            font-size: clamp(1.5rem, 4vw, 2rem); 
+            font-weight: 500; 
+            letter-spacing: 0.1em; 
+            color: var(--accent-gold); 
+            margin-bottom: 3rem; 
+            text-transform: uppercase; 
+        }
+        .synthesis-text { 
+            max-width: 800px; 
+            margin: 0 auto 3rem auto; 
+            text-align: center; 
+            font-size: clamp(0.95rem, 2vw, 1.1rem); 
+            line-height: 1.8; 
+            color: var(--text-secondary); 
+        }
+        .analogy-table { 
+            width: 100%; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            border-collapse: collapse; 
+            text-align: left; 
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+        .analogy-table th, .analogy-table td { 
+            padding: 15px; 
+            border: 1px solid var(--border-color); 
+        }
+        .analogy-table th { 
+            font-family: 'Oswald', sans-serif; 
+            color: var(--accent-gold); 
+            font-size: 1rem; 
+            text-align: center; 
+        }
+        .analogy-table td { 
+            color: var(--text-secondary); 
+        }
+        .analogy-table strong { 
+            color: var(--text-primary); 
+            font-weight: 500; 
+        }
+        .tree-section { 
+            padding: 60px 20px; 
+            width: 100%; 
+            position: relative; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            min-height: 70vh; 
+            overflow: hidden; 
+        }
+        .tree-container { 
+            position: relative; 
+            width: 90vw; 
+            max-width: 350px; 
+            height: 500px; 
+            margin: 2rem auto 0; 
+        }
+        .sefirah { 
+            position: absolute; 
+            width: 50px; 
+            height: 50px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 0.7rem; 
+            color: var(--accent-silver); 
+            background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); 
+            backdrop-filter: blur(5px); 
+            padding: 2px;
+        }
+        .sefirah.malkuth { 
+            border-color: var(--accent-gold); 
+            box-shadow: 0 0 20px var(--gold-glow); 
+            color: var(--accent-gold); 
+            animation: pulse-malkuth 3s infinite; 
+        }
+        @keyframes pulse-malkuth { 
+            0%, 100% { box-shadow: 0 0 20px var(--gold-glow); } 
+            50% { box-shadow: 0 0 35px var(--gold-glow); } 
+        }
+        .keter { top: 5%; left: 50%; transform: translateX(-50%); }
+        .chokhmah { top: 20%; left: 15%; }
+        .binah { top: 20%; right: 15%; }
+        .chesed { top: 38%; left: 8%; }
+        .gevurah { top: 38%; right: 8%; }
+        .tiferet { top: 48%; left: 50%; transform: translateX(-50%); }
+        .netzach { top: 63%; left: 15%; }
+        .hod { top: 63%; right: 15%; }
+        .yesod { top: 78%; left: 50%; transform: translateX(-50%); }
+        .malkuth { top: 92%; left: 50%; transform: translateX(-50%); }
+        .spark { 
+            position: absolute; 
+            width: 2px; 
+            height: 2px; 
+            background: var(--accent-gold); 
+            border-radius: 50%; 
+            opacity: 0; 
+            box-shadow: 0 0 3px var(--accent-gold); 
+        }
+        .domains-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+        .domain-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 10px; 
+            padding: 25px; 
+            text-align: center; 
+            transition: all 0.3s ease; 
+        }
+        .domain-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent-gold); 
+            box-shadow: 0 0 15px var(--gold-glow); 
+        }
+        .domain-card h3 { 
+            font-family: 'Oswald', sans-serif; 
+            color: var(--accent-gold); 
+            font-size: clamp(1rem, 3vw, 1.2rem); 
+            margin-bottom: 1rem; 
+        }
+        .domain-card p { 
+            color: var(--text-secondary); 
+            font-size: clamp(0.85rem, 2vw, 0.95rem); 
+            line-height: 1.6; 
+        }
+        .sales-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 15px; 
+            padding: 30px; 
+            width: 100%; 
+            max-width: 550px; 
+            margin: 0 auto; 
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 0 30px rgba(0,0,0,0.2); 
+        }
+        .domain-name { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: clamp(1.5rem, 5vw, 1.8rem); 
+            font-weight: 500; 
+            margin-bottom: 15px; 
+            color: var(--text-primary); 
+            text-transform: uppercase; 
+        }
+        .price { 
+            font-size: clamp(2rem, 6vw, 3rem); 
+            font-weight: 300; 
+            color: var(--accent-gold); 
+            margin: 10px 0; 
+        }
+        .installments { 
+            color: var(--text-secondary); 
+            margin-bottom: 25px; 
+            font-style: italic; 
+            font-size: clamp(0.9rem, 2vw, 1rem); 
+        }
+        .buy-button { 
+            display: inline-block; 
+            background: var(--accent-gold); 
+            color: #000; 
+            font-family: 'Oswald', sans-serif; 
+            font-size: clamp(1rem, 3vw, 1.1rem); 
+            font-weight: 500; 
+            padding: 15px 30px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            border: none; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.08em; 
+            transition: all 0.3s ease; 
+            width: 100%; 
+            margin-top: 25px; 
+        }
+        .buy-button:hover { 
+            background: #eac14c; 
+            transform: translateY(-3px); 
+            box-shadow: 0 12px 30px var(--gold-glow); 
+        }
+        footer { 
+            padding: 50px 40px 70px; 
+            font-size: clamp(0.85rem, 2vw, 0.95rem); 
+            color: var(--text-secondary); 
+            border-top: 1px solid var(--border-color); 
+            width: 100%; 
+        }
+        .contact-button { 
+            background: transparent; 
+            color: var(--accent-gold); 
+            border: 1px solid var(--border-color); 
+            font-family: 'EB Garamond', serif; 
+            font-size: clamp(0.95rem, 2vw, 1rem); 
+            padding: 10px 25px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            margin-top: 15px; 
+        }
+        .contact-button:hover { 
+            background: var(--card-bg); 
+            border-color: var(--accent-gold); 
+        }
+        #email-copy-feedback { 
+            height: 1.2em; 
+            font-size: clamp(0.8rem, 2vw, 0.9rem); 
+            margin-top: 10px; 
+        }
+        
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .content-section { padding: 80px 20px; }
-            .main-title { font-size: clamp(3rem, 15vw, 6rem); }
-            .section-title { font-size: 1.5rem; }
-            .analogy-table th, .analogy-table td { display: block; width: 100%; text-align: center; }
-            .analogy-table th { border-bottom: 2px solid var(--accent-gold); }
-            .analogy-table td { border-bottom: none; }
-            .domains-grid { grid-template-columns: 1fr; }
+            .content-section { padding: 60px 20px; }
+            .tree-container { max-width: 300px; height: 450px; }
+            .sefirah { width: 45px; height: 45px; font-size: 0.65rem; }
+            .analogy-table { display: block; overflow-x: auto; }
+            .analogy-table thead { display: none; }
+            .analogy-table tr { 
+                display: block; 
+                margin-bottom: 15px; 
+                border: 1px solid var(--border-color); 
+                border-radius: 8px; 
+            }
+            .analogy-table td { 
+                display: block; 
+                text-align: center; 
+                padding: 12px; 
+            }
+            .analogy-table td:first-child { 
+                font-weight: 600; 
+                color: var(--accent-gold); 
+                font-family: 'Oswald', sans-serif; 
+            }
+            .analogy-table td:nth-child(2) { 
+                font-weight: 500; 
+                color: var(--text-primary); 
+            }
+            .analogy-table td:last-child { 
+                color: var(--text-secondary); 
+                font-size: 0.9rem; 
+            }
+            footer { padding: 40px 20px 60px; }
+        }
+        
+        @media (max-width: 480px) {
+            header { min-height: auto; padding: 40px 15px; }
+            .main-title { 
+                font-size: clamp(2.5rem, 10vw, 4rem); 
+                line-height: 1.2; 
+            }
+            .tagline { 
+                font-size: clamp(0.9rem, 4vw, 1.1rem); 
+                margin: 1rem auto 0; 
+            }
+            .content-section { padding: 50px 15px; }
+            .section-title { 
+                font-size: clamp(1.3rem, 5vw, 1.6rem); 
+                margin-bottom: 2rem; 
+            }
+            .tree-container { 
+                max-width: 280px; 
+                height: 400px; 
+            }
+            .sefirah { 
+                width: 40px; 
+                height: 40px; 
+                font-size: 0.6rem; 
+                padding: 1px; 
+            }
+            .keter, .tiferet, .yesod, .malkuth { 
+                transform: translateX(-50%); 
+            }
+            .sales-card { 
+                padding: 25px 20px; 
+                max-width: 100%; 
+            }
+            .price { 
+                font-size: clamp(1.8rem, 7vw, 2.5rem); 
+            }
+            .buy-button { 
+                padding: 12px 20px; 
+                font-size: clamp(0.95rem, 3vw, 1rem); 
+            }
+            footer { 
+                padding: 30px 15px 50px; 
+                font-size: 0.85rem; 
+            }
+            .contact-button { 
+                padding: 8px 20px; 
+                font-size: 0.95rem; 
+            }
         }
     </style>
 </head>
@@ -152,7 +401,7 @@
         <div class="container">
             <div class="section-title">The Synthesis: Malkuth & Physical AI</div>
             <p class="synthesis-text">
-                Malkuth (מַלְכוּת) is the final station of creation—the **Kingdom**, the Physical Realm, the ultimate manifestation of all divine energy. It is where abstract potential becomes concrete reality. For AI, this is the final frontier: the Great Descent from the cloud to the earth. It is the moment an algorithm acquires a body, and intelligence acquires a kingdom to act within.
+                Malkuth (מַלְכוּת) is the final station of creation—the <strong>Kingdom</strong>, the Physical Realm, the ultimate manifestation of all divine energy. It is where abstract potential becomes concrete reality. For AI, this is the final frontier: the Great Descent from the cloud to the earth. It is the moment an algorithm acquires a body, and intelligence acquires a kingdom to act within.
             </p>
             <table class="analogy-table">
                 <thead>
@@ -185,7 +434,7 @@
 
     <section class="tree-section">
         <div class="container">
-             <div class="section-title">The Architecture of Embodiment</div>
+            <div class="section-title">The Architecture of Embodiment</div>
             <div class="tree-container" id="tree-container"></div>
         </div>
     </section>
@@ -231,9 +480,16 @@
 
         const treeContainer = document.getElementById('tree-container');
         const sefirotData = [
-            { name: 'Keter', class: 'keter' }, { name: 'Chokhmah', class: 'chokhmah' }, { name: 'Binah', class: 'binah' },
-            { name: 'Chesed', class: 'chesed' }, { name: 'Gevurah', class: 'gevurah' }, { name: 'Tiferet', class: 'tiferet' },
-            { name: 'Netzach', class: 'netzach' }, { name: 'Hod', class: 'hod' }, { name: 'Yesod', class: 'yesod' }, { name: 'Malkuth', class: 'malkuth' }
+            { name: 'Keter', class: 'keter' }, 
+            { name: 'Chokhmah', class: 'chokhmah' }, 
+            { name: 'Binah', class: 'binah' },
+            { name: 'Chesed', class: 'chesed' }, 
+            { name: 'Gevurah', class: 'gevurah' }, 
+            { name: 'Tiferet', class: 'tiferet' },
+            { name: 'Netzach', class: 'netzach' }, 
+            { name: 'Hod', class: 'hod' }, 
+            { name: 'Yesod', class: 'yesod' }, 
+            { name: 'Malkuth', class: 'malkuth' }
         ];
         sefirotData.forEach(s => {
             const el = document.createElement('div');
@@ -242,13 +498,19 @@
             treeContainer.appendChild(el);
         });
 
-        // Paths focusing on a top-down cascade to Malkuth
         const paths = [
-            { start: '.keter', end: '.tiferet' }, { start: '.tiferet', end: '.yesod' }, { start: '.yesod', end: '.malkuth' },
-            { start: '.chokhmah', end: '.chesed' }, { start: '.chesed', end: '.netzach' }, { start: '.netzach', end: '.malkuth' },
-            { start: '.binah', end: '.gevurah' }, { start: '.gevurah', end: '.hod' }, { start: '.hod', end: '.malkuth' },
-            { start: '.tiferet', end: '.malkuth' }, // Direct flow
-            { start: '.hod', end: '.yesod' }, { start: '.netzach', end: '.yesod' },
+            { start: '.keter', end: '.tiferet' }, 
+            { start: '.tiferet', end: '.yesod' }, 
+            { start: '.yesod', end: '.malkuth' },
+            { start: '.chokhmah', end: '.chesed' }, 
+            { start: '.chesed', end: '.netzach' }, 
+            { start: '.netzach', end: '.malkuth' },
+            { start: '.binah', end: '.gevurah' }, 
+            { start: '.gevurah', end: '.hod' }, 
+            { start: '.hod', end: '.malkuth' },
+            { start: '.tiferet', end: '.malkuth' },
+            { start: '.hod', end: '.yesod' }, 
+            { start: '.netzach', end: '.yesod' },
         ];
 
         function createSparks() {
@@ -267,7 +529,7 @@
                 const endX = endRect.left + endRect.width / 2 - containerRect.left;
                 const endY = endRect.top + endRect.height / 2 - containerRect.top;
 
-                for (let i = 0; i < 4; i++) {
+                for (let i = 0; i < 2; i++) {
                     const spark = document.createElement('div');
                     spark.className = 'spark';
                     spark.style.left = `${startX}px`;
@@ -287,7 +549,9 @@
                         spark.style.animation = `${keyframeName} ${duration}s linear infinite`;
                         spark.style.animationDelay = `${Math.random() * duration}s`;
                         treeContainer.appendChild(spark);
-                    } catch (e) { console.warn("Could not insert CSS Rule.", e); }
+                    } catch (e) { 
+                        console.warn("Could not insert CSS Rule.", e); 
+                    }
                 }
             });
         }
@@ -304,8 +568,13 @@
                 button.textContent = 'Email Copied!';
                 feedback.textContent = 'Copied to clipboard.';
                 feedback.style.color = 'var(--accent-gold)';
-                setTimeout(() => { button.textContent = originalButtonText; feedback.textContent = ''; }, 3000);
-            }).catch(err => { showManualCopy(email, feedback); });
+                setTimeout(() => { 
+                    button.textContent = originalButtonText; 
+                    feedback.textContent = ''; 
+                }, 3000);
+            }).catch(err => { 
+                showManualCopy(email, feedback); 
+            });
         }
         function showManualCopy(email, feedbackElem) {
             feedbackElem.textContent = `Please copy: ${email}`;
