@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malkuth.ai | The Kingdom of Action, Realized.</title>
+    <meta name="description" content="Malkuth.ai: For the Physical AI. The domain where abstract code acquires a body and manifests its kingdom in the physical world.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0f; /* Basalt Black */
+            --text-primary: #EAEAEA;
+            --text-secondary: #888888;
+            --accent-gold: #D4AF37; /* Royal Gold */
+            --accent-silver: #A9A9A9;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --card-bg: rgba(25, 25, 28, 0.7);
+            --border-color: rgba(212, 175, 55, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'EB Garamond', serif; 
+            color: var(--text-primary); 
+            background: var(--bg-color);
+            text-align: center; 
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        .container { 
+            max-width: 1200px; 
+            width: 100%; 
+            padding: 0 40px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        header {
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 12vw, 9rem); 
+            font-weight: 500; 
+            letter-spacing: 0.1em; 
+            line-height: 1;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            animation: solidify 4s ease-out forwards;
+            --stroke-width: 1px;
+            --stroke-color: var(--gold-glow);
+            text-shadow: 
+                var(--stroke-width) 0 0 var(--stroke-color),
+                calc(var(--stroke-width) * -1) 0 0 var(--stroke-color),
+                0 var(--stroke-width) 0 var(--stroke-color),
+                0 calc(var(--stroke-width) * -1) 0 var(--stroke-color);
+        }
+        @keyframes solidify {
+            0% { color: transparent; text-shadow: 0 0 10px var(--gold-glow); }
+            50% { color: transparent; text-shadow: 0 0 10px var(--gold-glow); }
+            100% { color: var(--accent-gold); text-shadow: 0 0 20px var(--gold-glow); }
+        }
+        .main-title .tld {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-primary);
+            font-weight: 400;
+            margin-left: 0.1em;
+            animation: fadeIn 3s 2s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .tagline {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 2rem auto 0;
+            color: var(--text-secondary);
+            font-style: italic;
+            animation: fadeIn 3s 2.5s ease-out forwards;
+            opacity: 0;
+        }
+        .content-section { background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 100px 40px; width: 100%; }
+        .section-title { font-size: 2rem; font-weight: 500; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 4rem; text-transform: uppercase; }
+        .synthesis-text { max-width: 800px; margin: 0 auto 4rem auto; text-align: center; font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); }
+        .analogy-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; text-align: left; }
+        .analogy-table th, .analogy-table td { padding: 20px; border: 1px solid var(--border-color); }
+        .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: 1.2rem; text-align: center; }
+        .analogy-table td { color: var(--text-secondary); }
+        .analogy-table strong { color: var(--text-primary); font-weight: 500; }
+        .tree-section { padding: 100px 20px; width: 100%; position: relative; display: flex; justify-content: center; align-items: center; min-height: 80vh; overflow: hidden; }
+        .tree-container { position: relative; width: 90vw; height: 600px; max-width: 400px; margin: 0 auto; }
+        .sefirah { position: absolute; width: 60px; height: 60px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: var(--accent-silver); background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); }
+        /* --- HIGHLIGHT MALKUTH --- */
+        .sefirah.malkuth { border-color: var(--accent-gold); box-shadow: 0 0 20px var(--gold-glow); color: var(--accent-gold); animation: pulse-malkuth 3s infinite; }
+        @keyframes pulse-malkuth { 0%, 100% { box-shadow: 0 0 20px var(--gold-glow); } 50% { box-shadow: 0 0 35px var(--gold-glow); } }
+        .keter { top: 0; left: 50%; transform: translateX(-50%); }
+        .chokhmah { top: 15%; left: 15%; }
+        .binah { top: 15%; right: 15%; }
+        .chesed { top: 35%; left: 5%; }
+        .gevurah { top: 35%; right: 5%; }
+        .tiferet { top: 45%; left: 50%; transform: translateX(-50%); }
+        .netzach { top: 60%; left: 15%; }
+        .hod { top: 60%; right: 15%; }
+        .yesod { top: 75%; left: 50%; transform: translateX(-50%); }
+        .malkuth { top: 90%; left: 50%; transform: translateX(-50%); }
+        .spark { position: absolute; width: 3px; height: 3px; background: var(--accent-gold); border-radius: 50%; opacity: 0; box-shadow: 0 0 5px var(--accent-gold); }
+        @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
+        .domains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .domain-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s ease; }
+        .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 15px var(--gold-glow); }
+        .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1rem; }
+        .domain-card p { color: var(--text-secondary); font-size: 0.9rem; }
+        .sales-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 40px; width: 100%; max-width: 600px; margin: 0 auto; backdrop-filter: blur(10px); box-shadow: 0 0 30px rgba(0,0,0,0.2); }
+        .domain-name { font-family: 'Oswald', monospace; font-size: 1.8rem; font-weight: 500; margin-bottom: 20px; color: var(--text-primary); text-transform: uppercase; }
+        .price { font-size: 3rem; font-weight: 300; color: var(--accent-gold); margin: 10px 0; }
+        .installments { color: var(--text-secondary); margin-bottom: 30px; font-style: italic; font-size: 1.1rem; }
+        .buy-button { display: inline-block; background: var(--accent-gold); color: #000; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500; padding: 18px 35px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 30px; }
+        .buy-button:hover { background: #eac14c; transform: translateY(-3px); box-shadow: 0 12px 30px var(--gold-glow); }
+        footer { padding: 60px 40px; font-size: 0.95rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
+        .contact-button { background: transparent; color: var(--accent-gold); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: 1rem; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
+        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-gold); }
+        #email-copy-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; }
+        @media (max-width: 992px) { .analogy-table, .domains-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .content-section { padding: 80px 20px; }
+            .main-title { font-size: clamp(3rem, 15vw, 6rem); }
+            .section-title { font-size: 1.5rem; }
+            .analogy-table th, .analogy-table td { display: block; width: 100%; text-align: center; }
+            .analogy-table th { border-bottom: 2px solid var(--accent-gold); }
+            .analogy-table td { border-bottom: none; }
+            .domains-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="main-title" id="main-title">MALKUTH<span class="tld">.ai</span></h1>
+            <p class="tagline">The Kingdom of Action. Where Code Becomes Concrete.</p>
+        </div>
+    </header>
+
+    <section class="content-section" style="border-top: none;">
+        <div class="container">
+            <div class="section-title">The Synthesis: Malkuth & Physical AI</div>
+            <p class="synthesis-text">
+                Malkuth (מַלְכוּת) is the final station of creation—the **Kingdom**, the Physical Realm, the ultimate manifestation of all divine energy. It is where abstract potential becomes concrete reality. For AI, this is the final frontier: the Great Descent from the cloud to the earth. It is the moment an algorithm acquires a body, and intelligence acquires a kingdom to act within.
+            </p>
+            <table class="analogy-table">
+                <thead>
+                    <tr>
+                        <th>Kabbalah Concept</th>
+                        <th>AI Analogy</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Upper Sefirot (e.g., Chokhmah)</strong></td>
+                        <td><strong>Cloud AI & Algorithms</strong></td>
+                        <td>The abstract potential. The disembodied intelligence, the training models, the pure data—all residing in the non-physical "heavens" of the cloud.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Malkuth (The Kingdom)</strong></td>
+                        <td><strong>Physical AI & Robotics</strong></td>
+                        <td>The "body" of the AI. The tangible manifestation—robots, autonomous vehicles, smart devices—that executes the will of the intelligence in the physical world.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shekhinah (Divine Presence)</strong></td>
+                        <td><strong>Embodied Intelligence</strong></td>
+                        <td>The "soul in the machine." The state where the AI is no longer just controlling a body, but is truly "present" within it, learning and acting through physical interaction.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="tree-section">
+        <div class="container">
+             <div class="section-title">The Architecture of Embodiment</div>
+            <div class="tree-container" id="tree-container"></div>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">The Nine Kingdoms of Malkuth.ai</div>
+            <div class="domains-grid">
+                <div class="domain-card"><h3>General-Purpose Robotics</h3><p>The operating system and core identity for the coming generation of humanoid and general-purpose robots.</p></div>
+                <div class="domain-card"><h3>Embodied AI Research</h3><p>The flagship domain for top-tier labs studying how AI learns and evolves through a physical body.</p></div>
+                <div class="domain-card"><h3>Autonomous Systems OS</h3><p>The central "cloud brain" for coordinating legions of drones, vehicles, and robots—the true Kingdom's nervous system.</p></div>
+                <div class="domain-card"><h3>Programmable Matter</h3><p>For the ultimate frontier of physical AI: intelligent materials that change shape and function on command.</p></div>
+                <div class="domain-card"><h3>Automated Logistics</h3><p>The brand for a global network of automated trucks, warehouses, and delivery bots—the kingdom's circulatory system.</p></div>
+                <div class="domain-card"><h3>World Simulation (Digital Twin)</h3><p>The platform for creating the high-fidelity virtual "Kingdom" to train all physical AIs before deployment.</p></div>
+                <div class="domain-card"><h3>Robotic Manufacturing</h3><p>For fully autonomous factories where AIs don't just design products, but physically build and iterate on them.</p></div>
+                <div class="domain-card"><h3>Haptic & Bionic Interfaces</h3><p>The link between the human kingdom and the AI kingdom—advanced prosthetics, exoskeletons, and VR interfaces.</p></div>
+                <div class="domain-card"><h3>AI-Driven Terraforming</h3><p>The ultimate long-term vision: AIs physically reshaping environments on Earth and beyond, truly building their kingdom.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" style="border-top: none;">
+        <div class="container">
+            <div class="section-title">Claim the Kingdom</div>
+            <div class="sales-card">
+                <h3 class="domain-name">malkuth<span style="color: var(--accent-gold)">.ai</span></h3>
+                <p style="color: var(--text-secondary); margin-top:0;">The foundational brand for the age of Physical AI and Embodied Intelligence.</p>
+                <div class="price">$42,000 <small>USD</small></div>
+                <p class="installments">12 installment payments of $3,500</p>
+                <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/malkuth.ai/wLEe41aWYriCSpOV', '_blank')">Claim the Kingdom</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© <span id="currentYear"></span> Malkuth.ai — Where The Abstract Becomes Actual.</p>
+        <button id="contactBtn" class="contact-button" onclick="copyEmail()">Contact for Inquiry</button>
+        <p id="email-copy-feedback"></p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const treeContainer = document.getElementById('tree-container');
+        const sefirotData = [
+            { name: 'Keter', class: 'keter' }, { name: 'Chokhmah', class: 'chokhmah' }, { name: 'Binah', class: 'binah' },
+            { name: 'Chesed', class: 'chesed' }, { name: 'Gevurah', class: 'gevurah' }, { name: 'Tiferet', class: 'tiferet' },
+            { name: 'Netzach', class: 'netzach' }, { name: 'Hod', class: 'hod' }, { name: 'Yesod', class: 'yesod' }, { name: 'Malkuth', class: 'malkuth' }
+        ];
+        sefirotData.forEach(s => {
+            const el = document.createElement('div');
+            el.className = `sefirah ${s.class}`;
+            el.textContent = s.name;
+            treeContainer.appendChild(el);
+        });
+
+        // Paths focusing on a top-down cascade to Malkuth
+        const paths = [
+            { start: '.keter', end: '.tiferet' }, { start: '.tiferet', end: '.yesod' }, { start: '.yesod', end: '.malkuth' },
+            { start: '.chokhmah', end: '.chesed' }, { start: '.chesed', end: '.netzach' }, { start: '.netzach', end: '.malkuth' },
+            { start: '.binah', end: '.gevurah' }, { start: '.gevurah', end: '.hod' }, { start: '.hod', end: '.malkuth' },
+            { start: '.tiferet', end: '.malkuth' }, // Direct flow
+            { start: '.hod', end: '.yesod' }, { start: '.netzach', end: '.yesod' },
+        ];
+
+        function createSparks() {
+            treeContainer.querySelectorAll('.spark').forEach(e => e.remove());
+            paths.forEach((path, pIndex) => {
+                const startEl = document.querySelector(path.start);
+                const endEl = document.querySelector(path.end);
+                if (!startEl || !endEl) return;
+
+                const containerRect = treeContainer.getBoundingClientRect();
+                const startRect = startEl.getBoundingClientRect();
+                const endRect = endEl.getBoundingClientRect();
+
+                const startX = startRect.left + startRect.width / 2 - containerRect.left;
+                const startY = startRect.top + startRect.height / 2 - containerRect.top;
+                const endX = endRect.left + endRect.width / 2 - containerRect.left;
+                const endY = endRect.top + endRect.height / 2 - containerRect.top;
+
+                for (let i = 0; i < 4; i++) {
+                    const spark = document.createElement('div');
+                    spark.className = 'spark';
+                    spark.style.left = `${startX}px`;
+                    spark.style.top = `${startY}px`;
+                    
+                    const duration = 2.5 + Math.random() * 2;
+                    const keyframeName = `flow-${pIndex}-${i}`;
+                    const styleSheet = document.styleSheets[0];
+                    try {
+                        styleSheet.insertRule(`
+                            @keyframes ${keyframeName} {
+                                0% { opacity: 0; transform: translate(0, 0); }
+                                20% { opacity: 1; } 80% { opacity: 1; }
+                                100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); }
+                            }
+                        `, styleSheet.cssRules.length);
+                        spark.style.animation = `${keyframeName} ${duration}s linear infinite`;
+                        spark.style.animationDelay = `${Math.random() * duration}s`;
+                        treeContainer.appendChild(spark);
+                    } catch (e) { console.warn("Could not insert CSS Rule.", e); }
+                }
+            });
+        }
+        window.addEventListener('load', createSparks);
+        window.addEventListener('resize', createSparks);
+
+        function copyEmail() {
+            const email = 'joshua369x@gmail.com';
+            const button = document.getElementById('contactBtn');
+            const feedback = document.getElementById('email-copy-feedback');
+            if (!button || !feedback) return;
+            const originalButtonText = button.textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                button.textContent = 'Email Copied!';
+                feedback.textContent = 'Copied to clipboard.';
+                feedback.style.color = 'var(--accent-gold)';
+                setTimeout(() => { button.textContent = originalButtonText; feedback.textContent = ''; }, 3000);
+            }).catch(err => { showManualCopy(email, feedback); });
+        }
+        function showManualCopy(email, feedbackElem) {
+            feedbackElem.textContent = `Please copy: ${email}`;
+            feedbackElem.style.color = 'var(--text-secondary)';
+        }
+    </script>
+</body>
+</html>
