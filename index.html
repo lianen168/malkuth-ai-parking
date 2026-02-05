@@ -7,22 +7,24 @@
     <meta name="description" content="Malkuth.ai: For the Physical AI. The domain where abstract code acquires a body and manifests its kingdom in the physical world.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d0d0f;
+            --bg-color: #0a0a0f; /* 深空黑 */
             --text-primary: #EAEAEA;
-            --text-secondary: #888888;
-            --accent-gold: #D4AF37;
-            --accent-silver: #A9A9A9;
-            --gold-glow: rgba(212, 175, 55, 0.3);
-            --card-bg: rgba(25, 25, 28, 0.7);
-            --border-color: rgba(212, 175, 55, 0.15);
+            --text-secondary: #999999;
+            --accent-steel: #C0C0C0; /* 钢铁银 */
+            --accent-copper: #B87333; /* 工业铜 */
+            --accent-bronze: #CD7F32; /* 青铜 */
+            --steel-glow: rgba(192, 192, 192, 0.25);
+            --copper-glow: rgba(184, 115, 51, 0.3);
+            --card-bg: rgba(20, 20, 25, 0.8);
+            --border-color: rgba(192, 192, 192, 0.12);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: 'EB Garamond', serif; 
+            font-family: 'Roboto', sans-serif; 
             color: var(--text-primary); 
             background: var(--bg-color);
             text-align: center; 
@@ -47,25 +49,29 @@
             align-items: center;
         }
         .main-title {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             font-size: clamp(3rem, 8vw, 6rem); 
             font-weight: 500; 
-            letter-spacing: 0.1em; 
+            letter-spacing: 0.08em; 
             line-height: 1.1;
-            color: var(--accent-gold);
+            color: var(--accent-steel);
             text-transform: uppercase;
             animation: solidify 4s ease-out forwards;
-            text-shadow: 1px 0 0 var(--gold-glow), -1px 0 0 var(--gold-glow), 0 1px 0 var(--gold-glow), 0 -1px 0 var(--gold-glow);
+            text-shadow: 
+                1px 0 0 var(--steel-glow),
+                -1px 0 0 var(--steel-glow),
+                0 1px 0 var(--steel-glow),
+                0 -1px 0 var(--steel-glow);
         }
         @keyframes solidify {
-            0% { color: transparent; text-shadow: 0 0 10px var(--gold-glow); }
-            50% { color: transparent; text-shadow: 0 0 10px var(--gold-glow); }
-            100% { color: var(--accent-gold); text-shadow: 0 0 20px var(--gold-glow); }
+            0% { color: transparent; text-shadow: 0 0 10px var(--steel-glow); }
+            50% { color: transparent; text-shadow: 0 0 10px var(--steel-glow); }
+            100% { color: var(--accent-steel); text-shadow: 0 0 20px var(--steel-glow); }
         }
         .main-title .tld {
-            font-family: 'EB Garamond', serif;
-            color: var(--text-primary);
-            font-weight: 400;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--accent-copper);
+            font-weight: 500;
             margin-left: 0.1em;
             animation: fadeIn 3s 2s ease-out forwards;
             opacity: 0;
@@ -88,10 +94,11 @@
             width: 100%; 
         }
         .section-title { 
+            font-family: 'Roboto Mono', monospace;
             font-size: clamp(1.5rem, 4vw, 2rem); 
             font-weight: 500; 
-            letter-spacing: 0.1em; 
-            color: var(--accent-gold); 
+            letter-spacing: 0.12em; 
+            color: var(--accent-copper); 
             margin-bottom: 3rem; 
             text-transform: uppercase; 
         }
@@ -116,8 +123,8 @@
             border: 1px solid var(--border-color); 
         }
         .analogy-table th { 
-            font-family: 'Oswald', sans-serif; 
-            color: var(--accent-gold); 
+            font-family: 'Roboto Mono', monospace; 
+            color: var(--accent-copper); 
             font-size: 1rem; 
             text-align: center; 
         }
@@ -126,7 +133,7 @@
         }
         .analogy-table strong { 
             color: var(--text-primary); 
-            font-weight: 500; 
+            font-weight: 600; 
         }
         .tree-section { 
             padding: 60px 20px; 
@@ -156,20 +163,23 @@
             justify-content: center; 
             align-items: center; 
             font-size: 0.7rem; 
-            color: var(--accent-silver); 
+            color: var(--text-secondary); 
             background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); 
             backdrop-filter: blur(5px); 
             padding: 2px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
         }
         .sefirah.malkuth { 
-            border-color: var(--accent-gold); 
-            box-shadow: 0 0 20px var(--gold-glow); 
-            color: var(--accent-gold); 
+            border-color: var(--accent-copper); 
+            background: radial-gradient(circle, rgba(184, 115, 51, 0.15) 50%, transparent 70%);
+            box-shadow: 0 0 20px var(--copper-glow); 
+            color: var(--accent-copper); 
             animation: pulse-malkuth 3s infinite; 
         }
         @keyframes pulse-malkuth { 
-            0%, 100% { box-shadow: 0 0 20px var(--gold-glow); } 
-            50% { box-shadow: 0 0 35px var(--gold-glow); } 
+            0%, 100% { box-shadow: 0 0 20px var(--copper-glow); } 
+            50% { box-shadow: 0 0 35px var(--copper-glow); } 
         }
         .keter { top: 5%; left: 50%; transform: translateX(-50%); }
         .chokhmah { top: 20%; left: 15%; }
@@ -185,10 +195,10 @@
             position: absolute; 
             width: 2px; 
             height: 2px; 
-            background: var(--accent-gold); 
+            background: var(--accent-copper); 
             border-radius: 50%; 
             opacity: 0; 
-            box-shadow: 0 0 3px var(--accent-gold); 
+            box-shadow: 0 0 3px var(--accent-copper); 
         }
         .domains-grid { 
             display: grid; 
@@ -207,14 +217,15 @@
         }
         .domain-card:hover { 
             transform: translateY(-5px); 
-            border-color: var(--accent-gold); 
-            box-shadow: 0 0 15px var(--gold-glow); 
+            border-color: var(--accent-copper); 
+            box-shadow: 0 0 15px var(--copper-glow); 
         }
         .domain-card h3 { 
-            font-family: 'Oswald', sans-serif; 
-            color: var(--accent-gold); 
+            font-family: 'Roboto Mono', monospace; 
+            color: var(--accent-copper); 
             font-size: clamp(1rem, 3vw, 1.2rem); 
             margin-bottom: 1rem; 
+            font-weight: 500;
         }
         .domain-card p { 
             color: var(--text-secondary); 
@@ -233,17 +244,21 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.2); 
         }
         .domain-name { 
-            font-family: 'Oswald', sans-serif; 
+            font-family: 'Roboto Mono', monospace; 
             font-size: clamp(1.5rem, 5vw, 1.8rem); 
             font-weight: 500; 
             margin-bottom: 15px; 
             color: var(--text-primary); 
             text-transform: uppercase; 
         }
+        .domain-name span {
+            color: var(--accent-copper);
+        }
         .price { 
+            font-family: 'Roboto Mono', monospace;
             font-size: clamp(2rem, 6vw, 3rem); 
-            font-weight: 300; 
-            color: var(--accent-gold); 
+            font-weight: 400; 
+            color: var(--accent-copper); 
             margin: 10px 0; 
         }
         .installments { 
@@ -254,9 +269,9 @@
         }
         .buy-button { 
             display: inline-block; 
-            background: var(--accent-gold); 
+            background: var(--accent-copper); 
             color: #000; 
-            font-family: 'Oswald', sans-serif; 
+            font-family: 'Roboto Mono', monospace; 
             font-size: clamp(1rem, 3vw, 1.1rem); 
             font-weight: 500; 
             padding: 15px 30px; 
@@ -265,15 +280,15 @@
             border: none; 
             cursor: pointer; 
             text-transform: uppercase; 
-            letter-spacing: 0.08em; 
+            letter-spacing: 0.1em; 
             transition: all 0.3s ease; 
             width: 100%; 
             margin-top: 25px; 
         }
         .buy-button:hover { 
-            background: #eac14c; 
+            background: #d48a45; 
             transform: translateY(-3px); 
-            box-shadow: 0 12px 30px var(--gold-glow); 
+            box-shadow: 0 12px 30px var(--copper-glow); 
         }
         footer { 
             padding: 50px 40px 70px; 
@@ -284,9 +299,9 @@
         }
         .contact-button { 
             background: transparent; 
-            color: var(--accent-gold); 
+            color: var(--accent-copper); 
             border: 1px solid var(--border-color); 
-            font-family: 'EB Garamond', serif; 
+            font-family: 'Roboto', sans-serif; 
             font-size: clamp(0.95rem, 2vw, 1rem); 
             padding: 10px 25px; 
             border-radius: 8px; 
@@ -295,8 +310,8 @@
             margin-top: 15px; 
         }
         .contact-button:hover { 
-            background: var(--card-bg); 
-            border-color: var(--accent-gold); 
+            background: rgba(184, 115, 51, 0.08); 
+            border-color: var(--accent-copper); 
         }
         #email-copy-feedback { 
             height: 1.2em; 
@@ -325,11 +340,11 @@
             }
             .analogy-table td:first-child { 
                 font-weight: 600; 
-                color: var(--accent-gold); 
-                font-family: 'Oswald', sans-serif; 
+                color: var(--accent-copper); 
+                font-family: 'Roboto Mono', monospace; 
             }
             .analogy-table td:nth-child(2) { 
-                font-weight: 500; 
+                font-weight: 600; 
                 color: var(--text-primary); 
             }
             .analogy-table td:last-child { 
@@ -460,7 +475,7 @@
         <div class="container">
             <div class="section-title">Claim the Kingdom</div>
             <div class="sales-card">
-                <h3 class="domain-name">malkuth<span style="color: var(--accent-gold)">.ai</span></h3>
+                <h3 class="domain-name">malkuth<span>.ai</span></h3>
                 <p style="color: var(--text-secondary); margin-top:0;">The foundational brand for the age of Physical AI and Embodied Intelligence.</p>
                 <div class="price">$42,000 <small>USD</small></div>
                 <p class="installments">12 installment payments of $3,500</p>
@@ -567,7 +582,7 @@
             navigator.clipboard.writeText(email).then(() => {
                 button.textContent = 'Email Copied!';
                 feedback.textContent = 'Copied to clipboard.';
-                feedback.style.color = 'var(--accent-gold)';
+                feedback.style.color = var(--accent-copper);
                 setTimeout(() => { 
                     button.textContent = originalButtonText; 
                     feedback.textContent = ''; 
@@ -578,7 +593,7 @@
         }
         function showManualCopy(email, feedbackElem) {
             feedbackElem.textContent = `Please copy: ${email}`;
-            feedbackElem.style.color = 'var(--text-secondary)';
+            feedbackElem.style.color = var(--text-secondary);
         }
     </script>
 </body>
