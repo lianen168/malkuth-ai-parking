@@ -7,400 +7,111 @@
     <meta name="description" content="Malkuth.ai: For the Physical AI. The domain where abstract code acquires a body and manifests its kingdom in the physical world.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0a0a0f; /* 深空黑 */
+            /* --- NEW: Physical AI / Industrial Palette --- */
+            --bg-color: #0d0d0f;
             --text-primary: #EAEAEA;
-            --text-secondary: #999999;
-            --accent-steel: #C0C0C0; /* 钢铁银 */
-            --accent-copper: #B87333; /* 工业铜 */
-            --accent-bronze: #CD7F32; /* 青铜 */
-            --steel-glow: rgba(192, 192, 192, 0.25);
-            --copper-glow: rgba(184, 115, 51, 0.3);
-            --card-bg: rgba(20, 20, 25, 0.8);
-            --border-color: rgba(192, 192, 192, 0.12);
+            --text-secondary: #888888;
+            --accent-metal: #5d6d7e; /* Gunmetal Gray */
+            --accent-energy: #f39c12; /* Cyber Orange */
+            --energy-glow: rgba(243, 156, 18, 0.3);
+            --card-bg: rgba(25, 25, 28, 0.7);
+            --border-color: rgba(93, 109, 126, 0.25);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: 'Roboto', sans-serif; 
+            font-family: 'EB Garamond', serif; 
             color: var(--text-primary); 
             background: var(--bg-color);
             text-align: center; 
             overflow-x: hidden;
             line-height: 1.7;
         }
-        .container { 
-            max-width: 1200px; 
-            width: 100%; 
-            padding: 0 40px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        header {
-            width: 100%;
-            min-height: 100vh;
-            padding: 60px 20px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+        .container { max-width: 1200px; width: 100%; padding: 0 40px; margin: 0 auto; position: relative; z-index: 2; }
+        header { width: 100%; min-height: 100vh; padding: 40px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        /* --- NEW: "Metal Forging" Animation --- */
         .main-title {
-            font-family: 'Roboto Mono', monospace;
-            font-size: clamp(3rem, 8vw, 6rem); 
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 12vw, 9rem); 
             font-weight: 500; 
-            letter-spacing: 0.08em; 
-            line-height: 1.1;
-            color: var(--accent-steel);
+            letter-spacing: 0.1em; 
+            line-height: 1;
             text-transform: uppercase;
-            animation: solidify 4s ease-out forwards;
-            text-shadow: 
-                1px 0 0 var(--steel-glow),
-                -1px 0 0 var(--steel-glow),
-                0 1px 0 var(--steel-glow),
-                0 -1px 0 var(--steel-glow);
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent-energy);
+            animation: fill-metal 3s 1s ease-out forwards;
         }
-        @keyframes solidify {
-            0% { color: transparent; text-shadow: 0 0 10px var(--steel-glow); }
-            50% { color: transparent; text-shadow: 0 0 10px var(--steel-glow); }
-            100% { color: var(--accent-steel); text-shadow: 0 0 20px var(--steel-glow); }
+        @keyframes fill-metal {
+            0% { color: transparent; -webkit-text-stroke: 1px var(--accent-energy); }
+            100% { color: var(--accent-metal); -webkit-text-stroke: 1px var(--accent-metal); text-shadow: 0 0 10px var(--energy-glow); }
         }
         .main-title .tld {
-            font-family: 'Roboto Mono', monospace;
-            color: var(--accent-copper);
-            font-weight: 500;
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-energy);
+            font-weight: 400;
             margin-left: 0.1em;
             animation: fadeIn 3s 2s ease-out forwards;
             opacity: 0;
+            -webkit-text-stroke: 0;
         }
         @keyframes fadeIn { to { opacity: 1; } }
-        .tagline {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            max-width: 700px;
-            margin: 1.5rem auto 0;
-            color: var(--text-secondary);
-            font-style: italic;
-            animation: fadeIn 3s 2.5s ease-out forwards;
-            opacity: 0;
-            line-height: 1.6;
-        }
-        .content-section { 
-            background: var(--bg-color); 
-            border-top: 1px solid var(--border-color); 
-            padding: 80px 40px; 
-            width: 100%; 
-        }
-        .section-title { 
-            font-family: 'Roboto Mono', monospace;
-            font-size: clamp(1.5rem, 4vw, 2rem); 
-            font-weight: 500; 
-            letter-spacing: 0.12em; 
-            color: var(--accent-copper); 
-            margin-bottom: 3rem; 
-            text-transform: uppercase; 
-        }
-        .synthesis-text { 
-            max-width: 800px; 
-            margin: 0 auto 3rem auto; 
-            text-align: center; 
-            font-size: clamp(0.95rem, 2vw, 1.1rem); 
-            line-height: 1.8; 
-            color: var(--text-secondary); 
-        }
-        .analogy-table { 
-            width: 100%; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            border-collapse: collapse; 
-            text-align: left; 
-            font-size: clamp(0.85rem, 2vw, 1rem);
-        }
-        .analogy-table th, .analogy-table td { 
-            padding: 15px; 
-            border: 1px solid var(--border-color); 
-        }
-        .analogy-table th { 
-            font-family: 'Roboto Mono', monospace; 
-            color: var(--accent-copper); 
-            font-size: 1rem; 
-            text-align: center; 
-        }
-        .analogy-table td { 
-            color: var(--text-secondary); 
-        }
-        .analogy-table strong { 
-            color: var(--text-primary); 
-            font-weight: 600; 
-        }
-        .tree-section { 
-            padding: 60px 20px; 
-            width: 100%; 
-            position: relative; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center; 
-            min-height: 70vh; 
-            overflow: hidden; 
-        }
-        .tree-container { 
-            position: relative; 
-            width: 90vw; 
-            max-width: 350px; 
-            height: 500px; 
-            margin: 2rem auto 0; 
-        }
-        .sefirah { 
-            position: absolute; 
-            width: 50px; 
-            height: 50px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            font-size: 0.7rem; 
-            color: var(--text-secondary); 
-            background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); 
-            backdrop-filter: blur(5px); 
-            padding: 2px;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 500;
-        }
-        .sefirah.malkuth { 
-            border-color: var(--accent-copper); 
-            background: radial-gradient(circle, rgba(184, 115, 51, 0.15) 50%, transparent 70%);
-            box-shadow: 0 0 20px var(--copper-glow); 
-            color: var(--accent-copper); 
-            animation: pulse-malkuth 3s infinite; 
-        }
-        @keyframes pulse-malkuth { 
-            0%, 100% { box-shadow: 0 0 20px var(--copper-glow); } 
-            50% { box-shadow: 0 0 35px var(--copper-glow); } 
-        }
-        .keter { top: 5%; left: 50%; transform: translateX(-50%); }
-        .chokhmah { top: 20%; left: 15%; }
-        .binah { top: 20%; right: 15%; }
-        .chesed { top: 38%; left: 8%; }
-        .gevurah { top: 38%; right: 8%; }
-        .tiferet { top: 48%; left: 50%; transform: translateX(-50%); }
-        .netzach { top: 63%; left: 15%; }
-        .hod { top: 63%; right: 15%; }
-        .yesod { top: 78%; left: 50%; transform: translateX(-50%); }
-        .malkuth { top: 92%; left: 50%; transform: translateX(-50%); }
-        .spark { 
-            position: absolute; 
-            width: 2px; 
-            height: 2px; 
-            background: var(--accent-copper); 
-            border-radius: 50%; 
-            opacity: 0; 
-            box-shadow: 0 0 3px var(--accent-copper); 
-        }
-        .domains-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-        }
-        .domain-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 10px; 
-            padding: 25px; 
-            text-align: center; 
-            transition: all 0.3s ease; 
-        }
-        .domain-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--accent-copper); 
-            box-shadow: 0 0 15px var(--copper-glow); 
-        }
-        .domain-card h3 { 
-            font-family: 'Roboto Mono', monospace; 
-            color: var(--accent-copper); 
-            font-size: clamp(1rem, 3vw, 1.2rem); 
-            margin-bottom: 1rem; 
-            font-weight: 500;
-        }
-        .domain-card p { 
-            color: var(--text-secondary); 
-            font-size: clamp(0.85rem, 2vw, 0.95rem); 
-            line-height: 1.6; 
-        }
-        .sales-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 15px; 
-            padding: 30px; 
-            width: 100%; 
-            max-width: 550px; 
-            margin: 0 auto; 
-            backdrop-filter: blur(10px); 
-            box-shadow: 0 0 30px rgba(0,0,0,0.2); 
-        }
-        .domain-name { 
-            font-family: 'Roboto Mono', monospace; 
-            font-size: clamp(1.5rem, 5vw, 1.8rem); 
-            font-weight: 500; 
-            margin-bottom: 15px; 
-            color: var(--text-primary); 
-            text-transform: uppercase; 
-        }
-        .domain-name span {
-            color: var(--accent-copper);
-        }
-        .price { 
-            font-family: 'Roboto Mono', monospace;
-            font-size: clamp(2rem, 6vw, 3rem); 
-            font-weight: 400; 
-            color: var(--accent-copper); 
-            margin: 10px 0; 
-        }
-        .installments { 
-            color: var(--text-secondary); 
-            margin-bottom: 25px; 
-            font-style: italic; 
-            font-size: clamp(0.9rem, 2vw, 1rem); 
-        }
-        .buy-button { 
-            display: inline-block; 
-            background: var(--accent-copper); 
-            color: #000; 
-            font-family: 'Roboto Mono', monospace; 
-            font-size: clamp(1rem, 3vw, 1.1rem); 
-            font-weight: 500; 
-            padding: 15px 30px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            border: none; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            letter-spacing: 0.1em; 
-            transition: all 0.3s ease; 
-            width: 100%; 
-            margin-top: 25px; 
-        }
-        .buy-button:hover { 
-            background: #d48a45; 
-            transform: translateY(-3px); 
-            box-shadow: 0 12px 30px var(--copper-glow); 
-        }
-        footer { 
-            padding: 50px 40px 70px; 
-            font-size: clamp(0.85rem, 2vw, 0.95rem); 
-            color: var(--text-secondary); 
-            border-top: 1px solid var(--border-color); 
-            width: 100%; 
-        }
-        .contact-button { 
-            background: transparent; 
-            color: var(--accent-copper); 
-            border: 1px solid var(--border-color); 
-            font-family: 'Roboto', sans-serif; 
-            font-size: clamp(0.95rem, 2vw, 1rem); 
-            padding: 10px 25px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            margin-top: 15px; 
-        }
-        .contact-button:hover { 
-            background: rgba(184, 115, 51, 0.08); 
-            border-color: var(--accent-copper); 
-        }
-        #email-copy-feedback { 
-            height: 1.2em; 
-            font-size: clamp(0.8rem, 2vw, 0.9rem); 
-            margin-top: 10px; 
-        }
-        
-        /* Mobile Responsive */
+        .tagline { font-size: 1.3rem; max-width: 700px; margin: 2rem auto 0; color: var(--text-secondary); font-style: italic; animation: fadeIn 3s 2.5s ease-out forwards; opacity: 0; }
+        .content-section { background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 100px 40px; width: 100%; }
+        .section-title { font-size: 2rem; font-weight: 500; letter-spacing: 0.1em; color: var(--accent-energy); margin-bottom: 4rem; text-transform: uppercase; }
+        .synthesis-text { max-width: 800px; margin: 0 auto 4rem auto; text-align: center; font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); }
+        .analogy-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; text-align: left; }
+        .analogy-table th, .analogy-table td { padding: 20px; border: 1px solid var(--border-color); }
+        .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-energy); font-size: 1.2rem; text-align: center; }
+        .analogy-table td { color: var(--text-secondary); }
+        .analogy-table strong { color: var(--text-primary); font-weight: 500; }
+        .tree-section { padding: 100px 20px; width: 100%; position: relative; display: flex; justify-content: center; align-items: center; min-height: 80vh; overflow: hidden; }
+        /* --- MOBILE ADAPTATION FOR TREE --- */
+        .tree-container { position: relative; width: 90vw; height: 600px; max-width: 400px; margin: 0 auto; transform: scale(0.9); }
+        .sefirah { position: absolute; width: 60px; height: 60px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: #A9A9A9; background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); }
+        .sefirah.malkuth { border-color: var(--accent-energy); box-shadow: 0 0 20px var(--energy-glow); color: var(--accent-energy); animation: pulse-malkuth 3s infinite; }
+        @keyframes pulse-malkuth { 0%, 100% { box-shadow: 0 0 20px var(--energy-glow); } 50% { box-shadow: 0 0 35px var(--energy-glow); } }
+        .keter { top: 0; left: 50%; transform: translateX(-50%); }
+        .chokhmah { top: 15%; left: 15%; }
+        .binah { top: 15%; right: 15%; }
+        .chesed { top: 35%; left: 5%; }
+        .gevurah { top: 35%; right: 5%; }
+        .tiferet { top: 45%; left: 50%; transform: translateX(-50%); }
+        .netzach { top: 60%; left: 15%; }
+        .hod { top: 60%; right: 15%; }
+        .yesod { top: 75%; left: 50%; transform: translateX(-50%); }
+        .malkuth { top: 90%; left: 50%; transform: translateX(-50%); }
+        .spark { position: absolute; width: 3px; height: 3px; background: var(--accent-energy); border-radius: 50%; opacity: 0; box-shadow: 0 0 5px var(--accent-energy); }
+        @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
+        .domains-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .domain-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 30px; text-align: center; transition: all 0.3s ease; }
+        .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-energy); box-shadow: 0 0 15px var(--energy-glow); }
+        .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-energy); font-size: 1.2rem; margin-bottom: 1rem; }
+        .domain-card p { color: var(--text-secondary); font-size: 0.9rem; }
+        .sales-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 40px; width: 100%; max-width: 600px; margin: 0 auto; backdrop-filter: blur(10px); box-shadow: 0 0 30px rgba(0,0,0,0.2); }
+        .domain-name { font-family: 'Oswald', monospace; font-size: 1.8rem; font-weight: 500; margin-bottom: 20px; color: var(--text-primary); text-transform: uppercase; }
+        .price { font-size: 3rem; font-weight: 300; color: var(--accent-metal); margin: 10px 0; }
+        .installments { color: var(--text-secondary); margin-bottom: 30px; font-style: italic; font-size: 1.1rem; }
+        .buy-button { display: inline-block; background: var(--accent-energy); color: #000; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500; padding: 18px 35px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 30px; }
+        .buy-button:hover { background: #ffb142; transform: translateY(-3px); box-shadow: 0 12px 30px var(--energy-glow); }
+        footer { padding: 60px 40px; font-size: 0.95rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
+        .contact-button { background: transparent; color: var(--accent-energy); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: 1rem; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
+        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-energy); }
+        #email-copy-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; }
+        /* --- MOBILE ADAPTATIONS --- */
+        @media (max-width: 992px) { .analogy-table, .domains-grid { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .content-section { padding: 60px 20px; }
-            .tree-container { max-width: 300px; height: 450px; }
-            .sefirah { width: 45px; height: 45px; font-size: 0.65rem; }
-            .analogy-table { display: block; overflow-x: auto; }
-            .analogy-table thead { display: none; }
-            .analogy-table tr { 
-                display: block; 
-                margin-bottom: 15px; 
-                border: 1px solid var(--border-color); 
-                border-radius: 8px; 
-            }
-            .analogy-table td { 
-                display: block; 
-                text-align: center; 
-                padding: 12px; 
-            }
-            .analogy-table td:first-child { 
-                font-weight: 600; 
-                color: var(--accent-copper); 
-                font-family: 'Roboto Mono', monospace; 
-            }
-            .analogy-table td:nth-child(2) { 
-                font-weight: 600; 
-                color: var(--text-primary); 
-            }
-            .analogy-table td:last-child { 
-                color: var(--text-secondary); 
-                font-size: 0.9rem; 
-            }
-            footer { padding: 40px 20px 60px; }
-        }
-        
-        @media (max-width: 480px) {
-            header { min-height: auto; padding: 40px 15px; }
-            .main-title { 
-                font-size: clamp(2.5rem, 10vw, 4rem); 
-                line-height: 1.2; 
-            }
-            .tagline { 
-                font-size: clamp(0.9rem, 4vw, 1.1rem); 
-                margin: 1rem auto 0; 
-            }
-            .content-section { padding: 50px 15px; }
-            .section-title { 
-                font-size: clamp(1.3rem, 5vw, 1.6rem); 
-                margin-bottom: 2rem; 
-            }
-            .tree-container { 
-                max-width: 280px; 
-                height: 400px; 
-            }
-            .sefirah { 
-                width: 40px; 
-                height: 40px; 
-                font-size: 0.6rem; 
-                padding: 1px; 
-            }
-            .keter, .tiferet, .yesod, .malkuth { 
-                transform: translateX(-50%); 
-            }
-            .sales-card { 
-                padding: 25px 20px; 
-                max-width: 100%; 
-            }
-            .price { 
-                font-size: clamp(1.8rem, 7vw, 2.5rem); 
-            }
-            .buy-button { 
-                padding: 12px 20px; 
-                font-size: clamp(0.95rem, 3vw, 1rem); 
-            }
-            footer { 
-                padding: 30px 15px 50px; 
-                font-size: 0.85rem; 
-            }
-            .contact-button { 
-                padding: 8px 20px; 
-                font-size: 0.95rem; 
-            }
+            .content-section { padding: 80px 20px; }
+            .main-title { font-size: clamp(3rem, 15vw, 6rem); }
+            .tree-container { transform: scale(0.65); height: 500px; }
+            .section-title { font-size: 1.5rem; }
+            .analogy-table th, .analogy-table td { display: block; width: 100%; text-align: center; }
+            .analogy-table th { border-bottom: 2px solid var(--accent-energy); }
+            .analogy-table td { border-bottom: none; }
+            .domains-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -416,7 +127,7 @@
         <div class="container">
             <div class="section-title">The Synthesis: Malkuth & Physical AI</div>
             <p class="synthesis-text">
-                Malkuth (מַלְכוּת) is the final station of creation—the <strong>Kingdom</strong>, the Physical Realm, the ultimate manifestation of all divine energy. It is where abstract potential becomes concrete reality. For AI, this is the final frontier: the Great Descent from the cloud to the earth. It is the moment an algorithm acquires a body, and intelligence acquires a kingdom to act within.
+                Malkuth (מַלְכוּת) is the final station of creation—the **Kingdom**, the Physical Realm, the ultimate manifestation of all divine energy. For AI, this is the final frontier: the Great Descent from the cloud to the earth. It is the moment an algorithm acquires a body, and intelligence acquires a kingdom to act within.
             </p>
             <table class="analogy-table">
                 <thead>
@@ -449,7 +160,7 @@
 
     <section class="tree-section">
         <div class="container">
-            <div class="section-title">The Architecture of Embodiment</div>
+             <div class="section-title">The Architecture of Embodiment</div>
             <div class="tree-container" id="tree-container"></div>
         </div>
     </section>
@@ -475,7 +186,7 @@
         <div class="container">
             <div class="section-title">Claim the Kingdom</div>
             <div class="sales-card">
-                <h3 class="domain-name">malkuth<span>.ai</span></h3>
+                <h3 class="domain-name">malkuth<span style="color: var(--accent-energy)">.ai</span></h3>
                 <p style="color: var(--text-secondary); margin-top:0;">The foundational brand for the age of Physical AI and Embodied Intelligence.</p>
                 <div class="price">$42,000 <small>USD</small></div>
                 <p class="installments">12 installment payments of $3,500</p>
@@ -495,16 +206,9 @@
 
         const treeContainer = document.getElementById('tree-container');
         const sefirotData = [
-            { name: 'Keter', class: 'keter' }, 
-            { name: 'Chokhmah', class: 'chokhmah' }, 
-            { name: 'Binah', class: 'binah' },
-            { name: 'Chesed', class: 'chesed' }, 
-            { name: 'Gevurah', class: 'gevurah' }, 
-            { name: 'Tiferet', class: 'tiferet' },
-            { name: 'Netzach', class: 'netzach' }, 
-            { name: 'Hod', class: 'hod' }, 
-            { name: 'Yesod', class: 'yesod' }, 
-            { name: 'Malkuth', class: 'malkuth' }
+            { name: 'Keter', class: 'keter' }, { name: 'Chokhmah', class: 'chokhmah' }, { name: 'Binah', class: 'binah' },
+            { name: 'Chesed', class: 'chesed' }, { name: 'Gevurah', class: 'gevurah' }, { name: 'Tiferet', class: 'tiferet' },
+            { name: 'Netzach', class: 'netzach' }, { name: 'Hod', class: 'hod' }, { name: 'Yesod', class: 'yesod' }, { name: 'Malkuth', class: 'malkuth' }
         ];
         sefirotData.forEach(s => {
             const el = document.createElement('div');
@@ -514,18 +218,10 @@
         });
 
         const paths = [
-            { start: '.keter', end: '.tiferet' }, 
-            { start: '.tiferet', end: '.yesod' }, 
-            { start: '.yesod', end: '.malkuth' },
-            { start: '.chokhmah', end: '.chesed' }, 
-            { start: '.chesed', end: '.netzach' }, 
-            { start: '.netzach', end: '.malkuth' },
-            { start: '.binah', end: '.gevurah' }, 
-            { start: '.gevurah', end: '.hod' }, 
-            { start: '.hod', end: '.malkuth' },
-            { start: '.tiferet', end: '.malkuth' },
-            { start: '.hod', end: '.yesod' }, 
-            { start: '.netzach', end: '.yesod' },
+            { start: '.keter', end: '.tiferet' }, { start: '.tiferet', end: '.yesod' }, { start: '.yesod', end: '.malkuth' },
+            { start: '.chokhmah', end: '.chesed' }, { start: '.chesed', end: '.netzach' }, { start: '.netzach', end: '.malkuth' },
+            { start: '.binah', end: '.gevurah' }, { start: '.gevurah', end: '.hod' }, { start: '.hod', end: '.malkuth' },
+            { start: '.tiferet', end: '.malkuth' }, { start: '.hod', end: '.yesod' }, { start: '.netzach', end: '.yesod' },
         ];
 
         function createSparks() {
@@ -534,39 +230,27 @@
                 const startEl = document.querySelector(path.start);
                 const endEl = document.querySelector(path.end);
                 if (!startEl || !endEl) return;
-
                 const containerRect = treeContainer.getBoundingClientRect();
                 const startRect = startEl.getBoundingClientRect();
                 const endRect = endEl.getBoundingClientRect();
-
                 const startX = startRect.left + startRect.width / 2 - containerRect.left;
                 const startY = startRect.top + startRect.height / 2 - containerRect.top;
                 const endX = endRect.left + endRect.width / 2 - containerRect.left;
                 const endY = endRect.top + endRect.height / 2 - containerRect.top;
-
-                for (let i = 0; i < 2; i++) {
+                for (let i = 0; i < 4; i++) {
                     const spark = document.createElement('div');
                     spark.className = 'spark';
                     spark.style.left = `${startX}px`;
                     spark.style.top = `${startY}px`;
-                    
                     const duration = 2.5 + Math.random() * 2;
                     const keyframeName = `flow-${pIndex}-${i}`;
                     const styleSheet = document.styleSheets[0];
                     try {
-                        styleSheet.insertRule(`
-                            @keyframes ${keyframeName} {
-                                0% { opacity: 0; transform: translate(0, 0); }
-                                20% { opacity: 1; } 80% { opacity: 1; }
-                                100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); }
-                            }
-                        `, styleSheet.cssRules.length);
+                        styleSheet.insertRule(`@keyframes ${keyframeName} { 0% { opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); } }`, styleSheet.cssRules.length);
                         spark.style.animation = `${keyframeName} ${duration}s linear infinite`;
                         spark.style.animationDelay = `${Math.random() * duration}s`;
                         treeContainer.appendChild(spark);
-                    } catch (e) { 
-                        console.warn("Could not insert CSS Rule.", e); 
-                    }
+                    } catch (e) { console.warn("Could not insert CSS Rule.", e); }
                 }
             });
         }
@@ -582,18 +266,13 @@
             navigator.clipboard.writeText(email).then(() => {
                 button.textContent = 'Email Copied!';
                 feedback.textContent = 'Copied to clipboard.';
-                feedback.style.color = var(--accent-copper);
-                setTimeout(() => { 
-                    button.textContent = originalButtonText; 
-                    feedback.textContent = ''; 
-                }, 3000);
-            }).catch(err => { 
-                showManualCopy(email, feedback); 
-            });
+                feedback.style.color = 'var(--accent-energy)';
+                setTimeout(() => { button.textContent = originalButtonText; feedback.textContent = ''; }, 3000);
+            }).catch(err => { showManualCopy(email, feedback); });
         }
         function showManualCopy(email, feedbackElem) {
             feedbackElem.textContent = `Please copy: ${email}`;
-            feedbackElem.style.color = var(--text-secondary);
+            feedbackElem.style.color = 'var(--text-secondary)';
         }
     </script>
 </body>
